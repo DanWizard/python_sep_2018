@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Check Email</title>
+	</head>
+	<body>
+		<h1>congrats</h1>
+		<form action="/check" method="post">
+			<table>
+				<thead>
+					<tr>
+						<th>USER EMAIL LIST</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for i in email_data %}
+					<tr>
+						<td>
+							<h4>email:</h4>
+							<p>{{ i['email']}}</p>
+						</td>
+						
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</form>
+	</body>
+</html>

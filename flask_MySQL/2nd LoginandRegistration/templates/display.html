@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>login and registration</title>
+	</head>
+	<body>
+		<h1>Registration</h1>
+		<table>
+			<form action="/process" method="post">
+				{% with messages = get_flashed_messages(category_filter=["email"]) %}
+					  {% if messages %}
+					  	{%- for message in messages %}
+						  	<p>{{message}}</p>
+						{% endfor %}
+					  {% endif %}
+				{% endwith %}
+				<tr>
+					<td>
+						<p>Email:</p>
+					</td>
+					<td>
+						<input type="text" name="email">
+					</td>
+				</tr>
+				{% with messages = get_flashed_messages(category_filter=["first_name"]) %}
+					  {% if messages %}
+					  	{%- for message in messages %}
+						  	<p>{{message}}</p>
+						{% endfor %}
+					  {% endif %}
+				{% endwith %}
+				<tr>
+					<td>
+						<p>First Name:</p>
+					</td>
+					<td>
+						<input type="text" name="first_name">
+					</td>
+				</tr>
+				{% with messages = get_flashed_messages(category_filter=["last_name"]) %}
+					  {% if messages %}
+					  	{%- for message in messages %}
+						  	<p>{{message}}</p>
+						{% endfor %}
+					  {% endif %}
+				{% endwith %}
+				<tr>
+					<td>
+						<p>Last Name:</p>
+					</td>
+					<td>
+						<input type="text" name="last_name">
+					</td>
+				</tr>
+				{% with messages = get_flashed_messages(category_filter=['password']) %}
+					  {% if messages %}
+					  	{%- for message in messages %}
+						  	<p>{{message}}</p>
+						{% endfor %}
+					  {% endif %}
+				{% endwith %}
+				<tr>
+					<td>
+						<p>Password:</p>
+					</td>
+					<td>
+						<input type="password" name="password">
+					</td>
+				</tr>
+				{% with messages = get_flashed_messages(category_filter=['confirm_password']) %}
+					  {% if messages %}
+					  	{%- for message in messages %}
+						  	<p>{{message}}</p>
+						{% endfor %}
+					  {% endif %}
+				{% endwith %}
+				<tr>
+					<td>
+						<p> Confirm Password:</p>
+					</td>
+					<td>
+						<input type="password" name="confirm_password">
+					</td>
+					<td>
+						<input type="submit" name="submit">
+					</td>
+				</tr>
+			</form>
+		</table>
+		
+		
+		<h1>Log In</h1>
+		<table>
+			<form action="/processlogin" method="post">
+				{% with messages = get_flashed_messages(category_filter=['login_email']) %}
+					  {% if messages %}
+					  	{%- for message in messages %}
+						  	<p>{{message}}</p>
+						{% endfor %}
+					  {% endif %}
+				{% endwith %}
+				<tr>
+					<td>
+						<p>Email</p>
+					</td>
+					<td>
+						<input type="text" name="login_email">
+					</td>
+				</tr>
+				{% with messages = get_flashed_messages(category_filter=['login_password']) %}
+					  {% if messages %}
+					  	{%- for message in messages %}
+					  	<tr>
+					  		<td>
+						  	<p>{{message}}</p>
+						  	</td>
+
+						</tr>  	
+						{% endfor %}
+					  {% endif %}
+				{% endwith %}
+				<tr>
+					<td>
+						<p>Password</p>
+					</td>
+					<td>
+						<input type="password" name="login_password">
+					</td>
+					<td>
+						<input type="submit" name="submit">
+					</td>
+				</tr>
+			</form>
+		</table>
+		
+	</body>
+</html>

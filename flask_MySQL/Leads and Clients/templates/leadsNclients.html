@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>leadsNclients</title>
+		<script type="text/javascript" src="{{ url_for('static', filename='chart.js') }}"></script>
+	</head>
+	<body>
+		<h3>List of all customers and # of leads</h3>
+		<table>
+			<thead>
+				<tr>
+					<th>Customer Name</th>
+					<th>Number of Leads</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for i in all_data %}
+					<tr>
+						<td>{{ i['Customer_Name']}}</td>
+						<td>{{ i['Number_of_Leads']}}</td>
+					</tr>
+				{% endfor %}
+				<form action="/view" method="post">
+					<tr>
+						<td>New Lead</td>
+						<td><input type="text" name="customer_name"></td>
+					</tr>
+					<tr>
+						<td><input type="submit" name="sub"></td>
+					</tr>
+				</form>
+			</tbody>
+		</table>
+		<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+		<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+		<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+		<script>
+
+			w({{all_data|tojson}})
+		</script>
+		
+		
+	</body>
+</html>

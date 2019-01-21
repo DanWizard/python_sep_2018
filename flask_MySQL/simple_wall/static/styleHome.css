@@ -1,0 +1,60 @@
+*{
+	font-family: monospace;
+}
+
+#header{
+	height: 100px;
+	background-color: black;
+}
+
+#header h1{
+	display: inline-block;
+	margin: 0 0;
+	color: white;
+}
+
+#header i{
+	display: inline-block;
+	float: right;
+	color: white;
+}
+
+#header p{
+	display: inline-block;
+	float: right;
+	margin: 0 0;
+	margin-right: 100px;
+	color: white;
+	font-size: 15px;
+}
+
+#header a{
+	display: inline-block;
+	float: right;
+	margin: 0 0;
+	color: white;
+	font-size: 15px
+}
+
+#messages{
+	display: inline-block;
+	width: 45%;
+}
+
+#send_messages{
+	display: inline-block;
+	width: 45%;
+	float: right;
+}
+
+#send_messages input{
+	display: inline-block;
+}
+
+#send_messages p{
+	display: inline-block;
+}
+
+#send_messages form{
+	display: inline-block;
+}

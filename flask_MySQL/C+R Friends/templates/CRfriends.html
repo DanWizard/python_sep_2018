@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CR Friends</title>
+	</head>
+	<body>
+		<h1>These are all of my friends!</h1>
+		{% for i in all_friends %}
+
+		<table>
+			<tbody>
+				<tr>
+					<td>First Name:</td>
+					<td>{{ i['first_name'] }}</td>
+				</tr>
+				<tr>
+					<td>Last Name</td>
+					<td>{{ i['last_name'] }}</td>
+				</tr>
+				<tr>
+					<td>Occupation</td>
+					<td>{{ i['occupation'] }}</td>
+				</tr>
+			</tbody>
+		</table>
+		{% endfor %}
+		<h1>Add a friend</h1>
+		<form action="/input" method="post">
+			<table>
+				<tbody>
+					<tr>
+						<td>First name:</td>
+						<td><input type="text" name="first_name"></td>
+					</tr>
+					<tr>
+						<td>Last name:</td>
+						<td><input type="text" name="last_name"></td>
+					</tr>
+					<tr>
+						<td>Occupation:</td>
+						<td><input type="text" name="occupation"></td>
+					</tr>
+					<input type="submit" name="created" value="add to DB">
+				</tbody>
+			</table>
+		</form>
+	</body>
+</html>

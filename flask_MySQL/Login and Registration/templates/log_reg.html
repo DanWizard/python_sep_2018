@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>registration</title>
+	</head>
+	<body>
+		{% with messages = get_flashed_messages() %}
+    		{% if messages %}
+      			{% for message in messages %}
+        			<p>{{message}}</p>
+      			{% endfor %}
+    		{% endif %}
+  		{% endwith %}
+		<form action="/validate" method="post">
+			<table>
+				<tbody>
+					<tr>
+						<td>Email</td>
+						<td><input type="text" name="email"></td>	
+					</tr>
+					<tr>
+						<td>First Name</td>
+						<td><input type="text" name="first_name"></td>	
+					</tr>
+					<tr>
+						<td>Last Name</td>
+						<td><input type="text" name="last_name"></td>
+					</tr>
+					<tr>
+						<td>password</td>
+						<td><input type="text" name="password"></td>	
+					</tr>
+					<tr>
+						<td>Confirm Password</td>
+						<td><input type="text" name="confirm_password"></td>
+						<input type="submit" name="submit">		
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</body>
+</html>

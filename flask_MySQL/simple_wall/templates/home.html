@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styleHome.css') }}">
+</head>
+<body>
+	<div id="header">
+		<h1>CodingDojo Wall</h1>
+		<a href="/logoff">log off</a>
+		<p>Welocome {{ session['user_name'] }}</p>
+	</div>
+	<div id="messages">
+		<h1>{{ messages_recieved[0]['COUNT(idUser)']}} Message(s) for {{ session['user_name'] }}</h1>
+		{% for i in user_messages %}
+			<h1>{{i['messages']}}</h1>
+			<p>From: {{i['first_name']}}</p>
+			<form action="/delete/{{ i['idMessages']}}">
+				<input type="submit" name="sub" value="DELETE">
+			</form>
+		{% endfor %}
+		
+	</div>
+
+	<div id='send_messages'>
+		<h1>Send a message</h1>
+		<p>you have sent {{messages_sent[0]['COUNT(idSender)']}} msg(s)</p>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{%- for message in messages %}  		
+					<p>{{message}}</p>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		{% for i in other_users %}
+			<div>
+				<p>{{ i['first_name']}}</p>
+				<form action="/push/{{i['idUsers']}}" method="post">
+					<input type="text" name="message">
+					<input type="submit" name="" value="send!">
+				</form>
+			</div>
+		{% endfor %}
+
+		
+	</div>
+
+</body>
+</html>

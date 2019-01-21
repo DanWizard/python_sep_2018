@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>C+R friends</title>
+</head>
+<body>
+	<table>
+		<h1>These are my friends</h1>
+		<thead>
+			<tr>
+				<td>
+					<p>First Name</p>
+				</td>
+				<td>
+					<p>Last Name</p>
+				</td>
+				<td>
+					<p>Occupation</p>
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for i in all_friends%}
+			<tr>
+				<td>
+					 <p>{{ i['First_Name']}}</p>
+				</td>
+				<td>
+					 <p>{{ i['Last_Name']}}</p>
+				</td>
+				<td>
+					 <p>{{ i['Occupation']}}</p>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<h1>Add a friend</h1>
+	<form action="/process" method="post">
+		<table>
+			<tr>
+				<td>
+					<p>First Name:</p>
+				</td>
+				<td>
+					<input type="text" name="first_name">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Last Name:</p>
+				</td>
+				<td>
+					<input type="text" name="last_name">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Occupation:</p>
+				</td>
+				<td>
+					<input type="text" name="occupation">
+				</td>
+				<td>
+					<input type="submit" name="sub">
+				</td>
+			</tr>
+		</table>
+	</form>
+
+</body>
+</html>
