@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'first_app/css/styleLogin.css' %}">
+    
+    <title>Login and Registration</title>
+</head>
+<body>
+    <h1>Welcome Sign In to Manage Your Jobs</h1>
+    <form id='register'action='/create' ='col-lg-6 d-inline-block' method='POST'>
+        {% csrf_token %}
+        <h1>Register!</h1>
+        <div id="register">
+            <div >
+                <div >
+                    
+                        {% if messages %}
+                            {% for message in messages %}
+                            {% if 'reg' in message.tags %}
+                            <p id='error'>{{message}}</p>
+                            {% endif%}
+                            {% endfor %}
+                        {% endif %}
+                   
+                    <label for='first_name'>First Name</label>
+                    <input type="text"  id='first_name' name='first_name' placeholder="First name">
+                </div>
+            </div>
+            <div >
+                <div >
+                   
+                 
+                    <label for='last_name'>Last Name</label>
+                    <input type="text"  id='last_name' name='last_name' placeholder="Last name">
+                </div>
+            </div>
+            <div >
+                <div >
+                  
+                   
+                    <label for="email">Email</label>
+                    <input type="text"  id="email" name='email' placeholder="Email">
+                </div>
+            </div>
+            <div >
+                <div >
+                    
+                    <label for="password" >Password</label>
+                    <input type="password"  id="password" name='password' placeholder="Password">
+                    
+                </div>
+            </div>
+            <div >
+                <div>
+                    <label for="passconfirm" >Re-Enter Password</label>
+                    <input type="password"  id="passconfirm" name='passconfirm' placeholder="Password">
+                </div>
+            </div>
+            <button type="submit" value="submit" >Submit</button>
+    </div>
+    </form>
+    <form id="login" action='/read'  method='POST'>
+        {% csrf_token %}
+        <h1>Login</h1>
+        
+            {% if messages %}
+                {% for message in messages %}
+                 {% if 'login' in message.tags %}
+                <p id='error'>{{message}}</p>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+        <div id="login">
+            <div >
+                <div >
+                    <label for="email">Email</label>
+                    <input type="email"  id="email" name='username' placeholder="Email">
+                </div>
+            </div>
+            <div >
+                <div >
+                    <label for="password" >Password</label>
+                    <input type="password"  id="password" name='pw' placeholder="Password">
+                </div>
+            </div>
+            <button type="submit" value="submit">Submit</button>
+        </div>
+    </form>
+        
+</body>
+</html>

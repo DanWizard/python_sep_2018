@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit job</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'first_app/css/styleViewJob.css' %}">
+</head>
+<body>
+	<div id="header">
+		<h1>Hello {{ Job.job_from_user.first_name }}! Edit Your Job!</h1>
+		<a href="/logoff">log off</a>
+		<a href="/home">Dashboard</a>
+	</div>
+	{% if messages %}
+                {% for message in messages %}
+                 {% if 'job' in message.tags %}
+                <p>{{message}}</p>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+	<div id ='jobs'>
+		<h1>{{ Job.title }}</h1>
+		<table>
+				<tr>
+					<td>
+						<h2>{{Job.description}}</h2>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h2>Location:</h2>
+					</td>
+					<td>
+						<h2>{{ Job.location }}</h2>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h2>Posted by:</h2>
+					</td>
+					<td>
+						<h2>{{Job.job_from_user.first_name}}</h2>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h2>Posted on:</h2>
+					</td>
+					<td>
+						<h2>{{Job.created_at}}</h2>
+					</td>
+				</tr>			
+		</table>
+	</div>
+	<div id="user_jobs">
+
+	</div>
+</body>
+</html>

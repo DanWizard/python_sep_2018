@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Job</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'first_app/css/styleAddJob.css' %}">
+</head>
+<body>
+	<div id="header">
+		<h1>Hello {{ user.first_name }}! Add A Job!</h1>
+		<a href="/logoff">log off</a>
+		<p></p>
+	</div>
+	{% if messages %}
+                {% for message in messages %}
+                 {% if 'job' in message.tags %}
+                <p>{{message}}</p>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+	<div id ='jobs'>
+		<table>
+			<form action="/processAdd" method="post">
+				{% csrf_token %}
+				<tr>
+					<td>
+						<h2>Title</h2>
+					</td>
+					<td>
+						<input type="text" name="title">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h2>Description</h2>
+					</td>
+					<td>
+						<input type="text" name="desc">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h2>Location</h2>
+					</td>
+					<td>
+						<input type="text" name="location">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="submit" name="Submit">
+					</td>
+			</form>
+					<td>
+						<form id="cancel" action="/home" method="post">
+							{% csrf_token %}
+							<input type="submit" name="sub" value="Cancel">
+						</form>
+					</td>
+				</tr>
+			
+			
+		</table>
+	
+	</div>
+	<div id="user_jobs">
+
+	</div>
+</body>
+</html>

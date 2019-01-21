@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'first_app/css/styleHome.css' %}">
+</head>
+<body>
+	<div id="header">
+		<h1>Hello {{ user.first_name }}!</h1>
+		<form id="link" action="/addJob" method="post">
+			{% csrf_token %}
+		<input type="submit" name="sub" value="New Job!">
+		</form>
+		<a href="/logoff">log off</a>
+		<p></p>
+	</div>
+	<div id ='jobs'>
+		<table>
+			<thead>
+				<tr>
+					<th class="header">Job</th>
+					<th class="header">Location</th>
+					<th class="header">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for i in all_jobs %}
+				<tr>
+					<td>{{i.title}}</td>
+					<td>{{i.location}}</td>
+					<td>
+
+						<a href="/view/{{i.id}}">View</a>
+						{% if i.job_from_user_id == request.session.user_id %}
+						<span>|</span>
+						<a href="/remove/{{i.id}}">Remove</a>
+						<span>|</span>
+						<a href="/edit/{{i.id}}">Edit</a>
+						{% endif %}
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	
+	</div>
+	<div id="user_jobs">
+
+	</div>
+</body>
+</html>
