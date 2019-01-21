@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Travel Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'exam/css/dashstyle.css' %}" />
+</head>
+<body>
+    <div id="header">
+        <h2>Welcome {{ info.first_name }}!</h2>
+        <div id="right">
+            <a href="/add">New Trip</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <h1>Your Trip Schedule</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Plan</th>
+                <th>Travel Start Date</th>
+                <th>Travel End Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in mytrips %}
+            <tr>
+                {% if i.deactivated != "Y" %}
+                <td><a href='/view/{{i.id}}'>{{i.dest}}</a></td>
+                <td>{{i.start}}</td>
+                <td>{{i.end}}</td>
+                <td>{{i.desc}}</td>
+                <td>
+                    <a href='/cancel/{{i.id}}'>Cancel</a>
+                    {% if i.creator_id == request.session.id %}
+                        <a href='/delete/{{i.id}}'>Delete</a>
+                    {% endif %}
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+            {% for i in joined %}
+            <tr>
+                <td><a href='/view/{{i.id}}'>{{i.dest}}</a></td>
+                <td>{{i.start}}</td>
+                <td>{{i.end}}</td>
+                <td>{{i.desc}}</td>
+                <td>
+                    <a href='/cancel/{{i.id}}'>Cancel</a>
+                    {% if i.creator_id == request.session.id %}
+                        <a href='/delete/{{i.id}}'>Delete</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h1>Other User's Travel Plans</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Travel Start Date</th>
+                <th>Travel End Date</th>
+                <th>Do You Want to Join?</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in othertrips %}
+                {% if i.deactivated != "Y" %}
+                {% if i.creator_id != request.session.id %}
+                <tr>
+                    <td><a href='/view/{{i.id}}'>{{i.dest}}</a></td>
+                    <td>{{i.start}}</td>
+                    <td>{{i.end}}</td>
+                    <td><a href='/join/{{i.id}}'>Join</a></td>
+                </tr>
+                {% endif %}
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

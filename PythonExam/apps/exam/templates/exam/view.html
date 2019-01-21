@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>View Trip</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'exam/css/viewstyle.css' %}" />
+</head>
+<body>
+    <div id="right">
+        <a href='/travels'>Back</a>
+        <a href="#">Logout</a>
+    </div>
+    <h1>{{tripdata.dest}}</h1>
+    <table>
+        <tr>
+            <td>Planned By:</td>
+            <td>{{creator}}</td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td>{{tripdata.desc}}</td>
+        </tr>
+        <tr>
+            <td>Travel Date From:</td>
+            <td>{{tripdata.start}}</td>
+        </tr>
+        <tr>
+            <td>Travel Date To:</td>
+            <td>{{tripdata.end}}</td>
+        </tr>
+    </table>
+    <h1>Other Users Joining the Trip</h1>
+    {% for i in joineduser %}
+        <p>{{i.first_name}}</p>
+    {% endfor %}
+</body>
+</html>

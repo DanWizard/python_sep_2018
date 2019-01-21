@@ -1,0 +1,39 @@
+a{
+    color: blue;
+}
+
+tr :first-child{
+    font-weight: bold;
+}
+
+table{
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 5%
+}
+
+th{
+    text-align: left;
+}
+
+#header{
+    padding: 0% 1% 2% 1%;
+}
+
+#right{
+    display: inline-block;
+    margin-left: 60%;
+}
+
+h2{
+    display: inline-block;
+    margin-top: 1%;
+}
+
+h1{
+    margin-left: 10%;
+}
+
+table, th, td{
+    border: 1px solid black;
+}
