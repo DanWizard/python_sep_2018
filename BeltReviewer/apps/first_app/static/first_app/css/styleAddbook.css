@@ -1,0 +1,50 @@
+*{
+	font-family: monospace;
+}
+
+#header{
+	height: 100px;
+	background-color: white;
+}
+
+#header h1{
+	display: inline-block;
+	margin: 0 0;
+	color: black;
+}
+
+#header i{
+	display: inline-block;
+	float: right;
+	color: black;
+}
+
+#header p{
+	display: inline-block;
+	float: right;
+	margin: 0 0;
+	margin-right: 100px;
+	color: black;
+	font-size: 15px;
+}
+
+#header a{
+	display: inline-block;
+	float: right;
+	margin-right: 50px;
+	color: black;
+	font-size: 15px
+}
+
+#reviews{
+	display: inline-block;
+	margin-left: 50px;
+	width: 500px;
+}
+
+#books_with_reviews{
+	width: 500px;
+	display: inline-block;
+	float: right;
+}
+

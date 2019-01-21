@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'first_app/css/style.css' %}">
+</head>
+<body>
+	<div id="header">
+		<a href="/home">Home</a>
+		<a href="/logoff">log off</a>
+		<a href="/add_book">Add Book and Review</a>
+		<p></p>
+	</div>
+	<div id ='reviews'>
+		<table>
+			<tr>
+				<td>
+					<h1>User: {{user_reviews.first_name}}</h1>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h1>Name: {{user_reviews.first_name}} {{user_reviews.last_name}}</h1>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h1>Email:{{user_reviews.email}}</h1>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h1>Total Reviews:{{user_reviews.user_reviews.all.count}}</h1>
+				</td>
+			</tr>
+		</table>
+		
+	</div>
+	<div id="books_with_reviews">
+		<h1>Posted Reviews On the Following books</h1>
+		{% for i in user_reviews.user_reviews.all%}
+		<a href="/bookInfo/{{i.review_on_book.id}}">{{i.review_on_book.title}}</a>
+		{% endfor %}
+	</div>
+</body>
+</html>

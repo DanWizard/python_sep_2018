@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'first_app/css/styleAddbook.css' %}">
+</head>
+<body>
+	<div id="header">
+		<a href="/home">Home</a>
+		<a href="/logoff">logoff</a>
+		<p></p>
+	</div>
+	<div id ='reviews'>
+		<h1>Add A New Book Title Or Review</h1>
+	</div>
+	<div id="adding_book">
+		{% if messages %}
+                {% for message in messages %}
+                 {% if 'msgs' in message.tags %}
+                <p>{{message}}</p>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+		<form action="/processBnR" method="post">
+			{% csrf_token %}
+			<table>
+				<tr>
+					<td>
+						<h3>Book Title:</h3>
+					</td>
+					<td>
+						<input type="text" name="new_book">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h3>Author:</h3>
+					</td>
+					<tr>
+						<td>
+							<td>
+								<p>Choose From The List:</p>
+							</td>
+							<td>
+								<select name="new_existing_author">
+									<option value=""></option>
+									{% for i in authors%}
+									<option value='{{i.author}}'>{{ i.author }}</option>
+									{%endfor%}
+								</select>
+							</td>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<td>
+								<p>Or Add a New Author:</p>
+							</td>
+							<td>
+								<input type="text" name="new_author">
+							</td>
+						</td>
+					</tr>
+				</tr>
+				<tr>
+					<td>
+						<h3>Review:</h3>
+					</td>
+					<td>
+						<input type="text" name="new_review">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h3>Rating:</h3>
+					</td>
+					<td>
+						<select name="rating">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+			<input type="submit" name="sub" value="Add a New Book and Review">
+		</form>
+	</div>
+</body>
+</html>

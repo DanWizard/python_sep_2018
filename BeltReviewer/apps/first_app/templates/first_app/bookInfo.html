@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'first_app/css/stylebookInfo.css' %}">
+</head>
+<body>
+	<div id="header">
+		<h1>{{book_data.title}}</h1>
+		<a href="/logoff">log off</a>
+		<a href="/home">home</a>
+		<p></p>
+	</div>
+	<div id ='reviews'>
+		<h1>Reviews:</h1>
+			{% for review in book_data.book_reviews.all %}
+				<p>{{review.review_on_book.rating}}/5</p>
+				<p><a href="/userInfo/{{review.review_from_user.id}}">{{review.review_from_user.first_name}}</a> {{review.review}}</p>
+				<p>{{i.created_at}}</p>
+			{% endfor %}
+		
+	</div>
+	<div id="leave_a_review">
+		<h1>Other Books With Reviews</h1>
+		{% if messages %}
+                {% for message in messages %}
+                 {% if 'msgs' in message.tags %}
+                <p>{{message}}</p>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+		<form action="/processR/{{book_data.id}}" method="post">
+			{% csrf_token %}
+			<table>
+				<tr>
+					<td>
+						<h3>Review:</h3>
+					</td>
+					<td>
+						<input type="text" name="new_review">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h3>Rating:</h3>
+					</td>
+					<td>
+						<select name="rating">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+			<input type="hidden" name="redirect" value="{{book_data.id}}">
+			<input type="submit" name="sub" value="Add a New Book and Review">
+
+		</form>
+		
+	</div>
+</body>
+</html>
