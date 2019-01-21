@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>welcome</title>
+
+	</head>
+	<body>
+		
+		<style type="text/css">
+				.blue{
+					display: inline-block;
+					height: 100px;
+					width: 100px;
+				}
+		</style>
+		<h3>welcome!</h3>
+		{% for x in range(0,times) %}
+		
+			<div class="blue" style="background:{{ color }}"></div>
+
+		{% endfor %}
+
+	</body>
+</html>

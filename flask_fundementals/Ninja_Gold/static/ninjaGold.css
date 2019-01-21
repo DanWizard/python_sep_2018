@@ -1,0 +1,38 @@
+form{
+	display: inline-block;
+	margin-left: 10%;
+	width: 200px;
+	height: 200px;
+	border: solid black;
+	text-align: center;
+}
+
+#Activities{
+	width: 1000px;
+	height: 200px;
+	border: solid black;
+	overflow: auto;
+	background: #eaedf4;
+
+}
+
+#title2{
+	font-size: 20px;
+}
+
+#Gold{
+	width: 100px;
+	height: 50px;
+	background: #eaedf4;
+	border: solid black;
+	display: inline-block;
+	margin-top: 20px;
+}
+
+#title1{
+	display: inline-block;
+	font-size: 40px;
+	text-align: top;
+	padding-top: 0px;
+	margin-top: 0px;
+}

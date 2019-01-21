@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="storedData.css">
+		<title>Data Stored</title>
+	</head>
+	<body>
+		<p>
+		You ordered {{ value }} items.
+		</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Fruit Name</th>
+					<th>Quantity</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><p>Strawberry</p></td>
+					<td> {{ strawberry }} </td>
+					
+				</tr>
+				<tr>
+					<td><p>Rasberry</p></td>
+					<td>{{ rasberry }}</td>
+					
+				</tr>
+				<tr>
+					<td><p>Apple</p></td>
+					<td>{{ apple }}</td>
+				</tr>
+			</tbody>
+		</table>
+		<table>
+			<h1>Your Information</h1>
+			<tbody>
+				<tr>
+					<td><h3>Name:</h3></td>
+					<td>{{ name }}</td>
+				</tr>
+				<tr>
+					<td><h3>Student ID:</h3></td>
+					<td>{{ studentID }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

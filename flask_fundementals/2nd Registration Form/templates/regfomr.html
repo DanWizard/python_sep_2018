@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title>
+</head>
+<body>
+	
+		
+	
+	<div id="wrapper">
+		<form action="/checkData" method="post">
+			<table>
+				<tbody>
+					<tr>
+						{% with messages = get_flashed_messages(category_filter =["email"]) %}
+								{% if messages %}
+									{%- for message in messages %}
+			        				<p>{{message}}</p>
+			       					{% endfor %}
+			    				{% endif %}
+		    				{% endwith %}
+						<h1>Email:</h1>
+						<input type="text" name="email">
+					</tr>
+					<tr>
+						{% with messages = get_flashed_messages(category_filter =["first_name"]) %}
+								{% if messages %}
+									{%- for message in messages %}
+			        				<p>{{message}}</p>
+			       					{% endfor %}
+			    				{% endif %}
+		    				{% endwith %}
+						<h1>First Name:</h1>
+						<input type="text" name="first_name">
+					</tr>
+					<tr>
+						{% with messages = get_flashed_messages(category_filter =["last_name"]) %}
+								{% if messages %}
+									{%- for message in messages %}
+			        				<p>{{message}}</p>
+			       					{% endfor %}
+			    				{% endif %}
+		    				{% endwith %}
+						<h1>Last Name:</h1>
+						<input type="text" name="last_name">
+					</tr>
+					<tr>
+							{% with messages = get_flashed_messages(category_filter =["password"]) %}
+								{% if messages %}
+									{%- for message in messages %}
+			        				<p>{{message}}</p>
+			       					{% endfor %}
+			    				{% endif %}
+		    				{% endwith %}
+						<h1>Password:</h1>
+						<input type="text" name="password">
+					</tr>
+					<tr>
+						{% with messages = get_flashed_messages(category_filter =["confirm_password"]) %}
+								{% if messages %}
+									{%- for message in messages %}
+			        				<p>{{message}}</p>
+			       					{% endfor %}
+			    				{% endif %}
+		    				{% endwith %}
+						<h1>Confirm Password:</h1>
+						<input type="text" name="confirm_password">
+						<input type="submit" name="sub">
+					</tr>
+				</tbody>
+			</table>
+		
+		</form>
+	</div>
+
+</body>
+</html>

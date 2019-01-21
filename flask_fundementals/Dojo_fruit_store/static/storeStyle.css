@@ -1,0 +1,11 @@
+#dataInput{
+	display: inline-block;
+	vertical-align: top;
+}
+
+#para{
+	background: purple;
+	display: inline-block;
+	width: 500px;
+	height: 1000px;
+}

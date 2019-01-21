@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" type="text/css" href={{ url_for(	'static', filename="counter.css") }}>
+		<meta charset="utf-8">
+		<title>counter</title>
+	</head>
+	<body>
+		<h1>Counter</h1>
+		<form action="/button" method="post">
+			<button type="submit">Increase Visit</button>
+		</form>
+		<form action="/buttonreset" method="post">
+			<button type="submit">Reset Visit</button>
+		</form>
+		<form action="/buttondecrease" method="post">
+			<button type="submit">Decrease Visit</button>
+			<p>{{ session['count'] }}</p>
+		</form>
+
+
+
+
+	</body>
+</html>

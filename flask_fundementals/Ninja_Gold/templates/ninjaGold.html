@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='ninjaGold.css')}}">
+	<head>
+		<title>ninja Gold</title>
+	</head>
+	<body>
+		<div>
+			<p id="title1">Gold</p>
+			<div id="Gold">
+				{{ session['accumulate'] }}
+			</div>	
+		</div>
+
+		<form class='form' action="/getgold" method="post">
+			<h1>Farm</h1>
+			<input type="submit" name="farmGold" value="Find Gold!">
+		</form>
+		<form class='form' action="/getgold" method="post">
+			<h1>Cave</h1>
+			<input type="submit" name="caveGold" value="Find Gold!">
+		</form>
+		<form class='form' action="/getgold" method="post">
+			<h1>House</h1>
+			<input type="submit" name="houseGold" value="Find Gold!">
+		</form>
+		<form class='form' action="/getgold" method="post">
+			<h1>Casino</h1>
+			<input type="submit" name="casinoGold" value="Find Gold!">
+		</form>
+		<p id='title2'>Activities</p>
+		<div id='Activities'>
+			{% for i in session['farmAction'] %}
+			<p>Farm: {{ i }}GOLD</p>
+			{% endfor %}
+
+			{% for i in session['caveAction'] %}
+			<p>Cave: {{ i }}GOLD</p>
+			{% endfor %}
+
+			{% for i in session['houseAction'] %}
+			<p>House: {{ i }}GOLD</p>
+			{% endfor %}
+
+			{% for i in session['casinoAction'] %}
+			<p>Casino: {{ i }}GOLD</p>
+			{% endfor %}
+			
+			
+
+		</div>
+		
+
+	</body>
+</html>

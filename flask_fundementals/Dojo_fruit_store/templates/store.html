@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href={{ url_for(	'static', filename="storeStyle.css") }}>
+
+<html>
+	<head>
+		<title>store</title>
+	</head>
+	<body>
+		<div id='dataInput'>
+			<h1>Dojo Fruit Store</h1>
+			<h2>What would you like to buy</h2>
+			<form action="/checkout" method="post">
+				<table>
+					<thead>
+						<th>Fruit Name</th>
+						<th>Quantity</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>strawberry</td>
+							<td>
+								<select name="strawberry">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>rasberry</td>
+							<td>
+								<select name="rasberry">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>apple</td>
+							<td>
+								<select name="apple">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>	
+								</select>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<h3>Your Information</h3>
+				<table>
+					<tbody>
+						<tr>
+							<td>Name</td>
+							<td><input type="text" name="name"></td>
+							
+						</tr>
+						<tr>
+							<td>Student ID</td>
+							<td><input type="text" name="StudentID"></td>
+						</tr>
+						<tr>
+							<td><input type="submit" name="checkout"></td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+		<div id="para">
+			<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+		</div>
+
+	</body>
+</html>

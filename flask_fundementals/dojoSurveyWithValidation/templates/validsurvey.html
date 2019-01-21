@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>survey</title>
+	</head>
+	<body>
+		<form action="/data" method="post">
+			{% with messages = get_flashed_messages() %}
+    			{% if messages %}
+      				{% for message in messages %}
+       				 	<p>{{message}}</p>
+      				{% endfor %}
+   	 			{% endif %}
+  			{% endwith %}
+			Name: <input type="text" name="name">
+			Email: <input type="text" name="email">
+			<input type="submit" name="create user">
+		</form>
+
+	</body>
+</html>

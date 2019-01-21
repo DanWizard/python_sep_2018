@@ -1,0 +1,61 @@
+*{
+	font-family: monospace;
+}
+
+.action{
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	background-color: LightGrey;
+	border: solid black;
+}
+
+#actionWrapper{
+	width: 900px;
+	margin: 0 auto;
+}
+
+#actionWrapper h1{
+	text-align: center;
+}
+
+#actionWrapper p{
+	text-align: center;
+	font-size: 15px;
+}
+
+#actionWrapper form input{
+	vertical-align: bottom;
+	float: right;
+}
+
+#formWrapper{
+	width: 90px;
+	margin: 0 auto;
+	margin-top: 50px;
+
+}
+
+#goldBox{
+	display: inline-block;
+	font-size: 25px;
+}
+
+#count{
+	display: inline-block;
+	width: 50px;
+	height: 30px;
+	border-color: black;
+	border-style: solid;
+}
+
+#updates{
+	width: 815px;
+	margin: 0 auto;
+	border: solid black;
+	height: 400px;
+	overflow: auto;
+	background-color: LightGrey;
+
+}
+
